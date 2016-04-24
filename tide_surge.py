@@ -45,11 +45,6 @@ ndim, nwalkers = 6, 100
 
 
 
-m_true = -0.9594
-b_true = 4.294
-N = 50
-
-
 z = dataevents[:,3]
 x = datacounts[:,2]#np.sort(10*np.random.rand(N))
 k = []
@@ -92,7 +87,7 @@ sampler = emcee.EnsembleSampler(nwalkers, ndim, lnprob, args=[x, z, F1,FF2] )
 #sampler.run_mcmc(p0, 1000)
 
 # Run 100 steps as a burn-in.
-pos, prob, state = sampler.run_mcmc(p0, 40)
+pos, prob, state = sampler.run_mcmc(p0, 4000)
 
 # Reset the chain to remove the burn-in samples.
 sampler.reset()
@@ -100,7 +95,7 @@ sampler.reset()
 # Starting from the final position in the burn-in chain, sample for 1000
 # steps.
 
-sampler.run_mcmc(p0, 500)
+sampler.run_mcmc(p0, 30000)
 
 # Print out the mean acceptance fraction. In general, acceptance_fraction
 # has an entry for each walker so, in this case, it is a 250-dimensional

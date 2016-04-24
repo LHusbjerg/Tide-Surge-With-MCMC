@@ -1,0 +1,11 @@
+This project determines the parameter values in a generalized pareto distribution using markov chain monte carlo simulations.
+
+By esimating these parameters we can learn if our chosen predictor, the north atlantic oscillation index (NAO) has a meaningful impact on tide surges in stockholm.
+
+For the results see graphs/returnp_with_pred.png which shows that the surges in stockholm is both more common and larger when NAO is high. Red dots indicate high NAO, blue low NAO
+
+The idea is you sample a GPD with the data as arguments which allow you to estimate the parameters in said GPD
+
+tide_surge.py is the main program which runs the MCMC
+
+returnplort.py is for creating the returnplot.
